@@ -1,0 +1,9 @@
+option solver cplex;
+model MaxCoverageEq2.mod;
+set CASES = 1 .. 3;
+for {j in CASES} {
+reset data;
+data("" & j & ".dat"); # insert dat files path
+solve;
+display x,y,z,_total_solve_time >("" & j & ".out"); #insert out files path
+}
